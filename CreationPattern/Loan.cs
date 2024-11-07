@@ -11,42 +11,18 @@
          
          */
         public Loan(double commitment, int riskRating, DateTime maturity)
-        {
-            CapitalStrategy = new TermROC();
-            Commitment = commitment;
-            Maturity = maturity;
-            RiskRating = riskRating;
-        }
+            : this(new TermROC(), commitment, 0.00, riskRating, null, maturity) { }
 
         public Loan(double commitment, int riskRating, DateTime maturity, DateTime expiry)
-        {
-            CapitalStrategy = new TermROC();
-            Commitment = commitment;
-            Maturity = maturity;
-            RiskRating = riskRating;
-            Expiry = expiry;
-        }
+            : this(new TermROC(), commitment, 0.00, riskRating, expiry, maturity) { }
 
         public Loan(double commitment, double outstanding, int riskRating, DateTime expiry)
-        {
-            CapitalStrategy = new TermROC();
-            Commitment = commitment;
-            Outstanding = outstanding;
-            RiskRating = riskRating;
-            Expiry = expiry;
-        }
+            : this(new TermROC(), commitment, outstanding, riskRating, expiry, null) { }
 
         public Loan(double commitment, double outstanding, int riskRating, DateTime expiry, DateTime maturity)
-        {
-            CapitalStrategy = new RevolvingTermROC();
-            Commitment = commitment;
-            Outstanding = outstanding;
-            RiskRating = riskRating;
-            Expiry = expiry;
-            Maturity = maturity;
-        }
+            : this(new RevolvingTermROC(), commitment, outstanding, riskRating, expiry, maturity) { }
 
-        public Loan(ICapitalStrategy strategy, double commitment, double outstanding, int riskRating, DateTime expiry, DateTime maturity)
+        public Loan(ICapitalStrategy strategy, double commitment, double outstanding, int riskRating, DateTime? expiry, DateTime? maturity)
         {
             CapitalStrategy = strategy;
             Commitment = commitment;
@@ -64,8 +40,8 @@
 
         public int RiskRating { get; }
 
-        public DateTime Expiry { get; }
+        public DateTime? Expiry { get; }
 
-        public DateTime Maturity { get; }
+        public DateTime? Maturity { get; }
     }
 }

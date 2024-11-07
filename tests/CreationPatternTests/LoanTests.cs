@@ -20,7 +20,8 @@ namespace LearnRefactoring.CreationPatternTests
             // Assert
             commitment.ShouldBe(loan.Commitment);
             riskRating.ShouldBe(loan.RiskRating);
-            maturity.ShouldBe(loan.Maturity);
+            loan.Maturity.ShouldNotBeNull();
+            maturity.ShouldBe(loan.Maturity.Value);
             
         }
 
@@ -39,8 +40,11 @@ namespace LearnRefactoring.CreationPatternTests
             // Assert
             commitment.ShouldBe(loan.Commitment);
             riskRating.ShouldBe(loan.RiskRating);
-            expiry.ShouldBe(loan.Expiry);
-            maturity.ShouldBe(loan.Maturity);
+            loan.Maturity.ShouldNotBeNull();
+            maturity.ShouldBe(loan.Maturity.Value);
+            loan.Expiry.ShouldNotBeNull();
+            expiry.ShouldBe(loan.Expiry.Value);
+            
         }
 
         [TestMethod]
@@ -59,7 +63,8 @@ namespace LearnRefactoring.CreationPatternTests
             commitment.ShouldBe(loan.Commitment);
             outstanding.ShouldBe(loan.Outstanding);
             riskRating.ShouldBe(loan.RiskRating);
-            expiry.ShouldBe(loan.Expiry);
+            loan.Expiry.ShouldNotBeNull();
+            expiry.ShouldBe(loan.Expiry.Value);
         }
 
         [TestMethod]
@@ -79,8 +84,10 @@ namespace LearnRefactoring.CreationPatternTests
             commitment.ShouldBe(loan.Commitment);
             outstanding.ShouldBe(loan.Outstanding);
             riskRating.ShouldBe(loan.RiskRating);
-            maturity.ShouldBe(loan.Maturity);
-            expiry.ShouldBe(loan.Expiry);
+            loan.Maturity.ShouldNotBeNull();
+            maturity.ShouldBe(loan.Maturity.Value);
+            loan.Expiry.ShouldNotBeNull();
+            expiry.ShouldBe(loan.Expiry.Value);
         }
 
         [TestMethod]
@@ -102,8 +109,10 @@ namespace LearnRefactoring.CreationPatternTests
             commitment.ShouldBe(loan.Commitment);
             outstanding.ShouldBe(loan.Outstanding);
             riskRating.ShouldBe(loan.RiskRating);
-            maturity.ShouldBe(loan.Maturity);
-            expiry.ShouldBe(loan.Expiry);
+            loan.Maturity.ShouldNotBeNull();
+            maturity.ShouldBe(loan.Maturity.Value);
+            loan.Expiry.ShouldNotBeNull();
+            expiry.ShouldBe(loan.Expiry.Value);
         }
     }
 }
